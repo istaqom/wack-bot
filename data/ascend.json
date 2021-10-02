@@ -1,0 +1,44 @@
+{
+    "20" : {
+        "mora" : 20000,
+        "boss" : 0,
+        "stone" : 1,
+        "stone_type" : "Sliver"
+    },
+    "40" : {
+        "mora" : 40000,
+        "boss" : 2,
+        "stone" : 3,
+        "stone_type" : "Fragment"
+    },
+    "50" : {
+        "mora" : 60000,
+        "boss" : 4,
+        "stone" : 6,
+        "stone_type" : "Fragment"
+    },
+    "60" : {
+        "mora" : 80000,
+        "boss" : 8,
+        "stone" : 3,
+        "stone_type" : "Chunk"
+    },
+    "70" : {
+        "mora" : 100000,
+        "boss" : 12,
+        "stone" : 6,
+        "stone_type" : "Chunk"
+    },
+    "80" : {
+        "mora" : 120000,
+        "boss" : 20,
+        "stone" : 6,
+        "stone_type" : "Gemstone"
+    },
+    "Total" : {
+        "mora" : 420000,
+        "boss" : 46,
+        "stone" : "",
+        "type" : ""
+    }
+}
