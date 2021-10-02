@@ -4,7 +4,7 @@ module.exports = {
     name : 'calc',
     descrition : 'To calculate',
     execute(message, args) {
-        if (!args.length) {
+        if (args.length) {
             try {
                 calculate = strCalc(`${args}`)
                 return message.channel.send(`${calculate}`)
