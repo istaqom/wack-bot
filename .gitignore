@@ -1,0 +1,5 @@
+node_modules/
+bot-backup/
+commands-backup/
+index-copy.js
+config.json
