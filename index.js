@@ -18,7 +18,7 @@ for (const file of commandFiles) {
 }
 
 client.on('message', async message => {
-    if (message.content.toLowerCase().includes("istaqom")) {
+    if (message.content.toLowerCase().includes("istaqom") && !message.author.bot) {
         await message.react('793517709543211028');
     }
 
