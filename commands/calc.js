@@ -1,4 +1,4 @@
-const strCalc = require('string-calculator');
+const strMath = require('string-math');
 
 module.exports = {
     name : 'calc',
@@ -6,7 +6,7 @@ module.exports = {
     execute(message, args) {
         if (args.length) {
             try {
-                calculate = strCalc(`${args}`)
+                calculate = strMath(`${args}`)
                 return message.channel.send(`${calculate}`)
             } catch(err) {
                 return message.channel.send(`Uh-oh something went wrong`).then(msg =>{
