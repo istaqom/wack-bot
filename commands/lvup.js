@@ -12,10 +12,10 @@ module.exports = {
         var table = new Table({
             head: ['Level', 'EXP', 'Mora', "HW"],
             colWidths: [7, 11, 11, 5],
-            chars: { 'top': '' , 'top-mid': '' , 'top-left': '' , 'top-right': ''
-                    , 'bottom': '' , 'bottom-mid': '' , 'bottom-left': '' , 'bottom-right': ''
-                    , 'left': '' , 'left-mid': '' , 'mid': '' , 'mid-mid': ''
-                    , 'right': '' , 'right-mid': '' , 'middle': ' ' },
+            chars: { 'top': '' , 'top-mid': '' , 'top-left': '' , 'top-right': '',
+                    'bottom': '' , 'bottom-mid': '' , 'bottom-left': '' , 'bottom-right': '',
+                    'left': '' , 'left-mid': '' , 'mid': '' , 'mid-mid': '',
+                    'right': '' , 'right-mid': '' , 'middle': ' ' },
             style: { 'padding-left': 0, 'padding-right': 0 }
         });
         
