@@ -32,6 +32,6 @@ module.exports = {
         
         table.push(['Total', `${numFormat(arrData[0])}`, `${numFormat(arrData[1])}`, `${numFormat(arrData[2])}`]);
         
-        return message.channel.send(`'''${'.\n' + table.toString()}'''`);
+        return message.channel.send(`${String.fromCharCode(96,96,96)}${table.toString()}${String.fromCharCode(96,96,96)}`);
     }
 };
