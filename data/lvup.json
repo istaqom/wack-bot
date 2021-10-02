@@ -40,5 +40,11 @@
         "exp" : 3423125,
         "mora" : 688000,
         "hero wit" : 172
+    },
+    "Total" : {
+        "level" : "Total",
+        "exp" : 8362650,
+        "mora" : 1684000,
+        "hero wit" : 421
     }
 }

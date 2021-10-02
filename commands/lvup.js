@@ -10,28 +10,22 @@ module.exports = {
 	description: 'Show level up material',
 	execute(message) {
         var table = new Table({
-            head: ['Level', 'EXP', 'Mora', "Hero's Wit"]
-          , colWidths: [10, 12, 12, 12]
+            head: ['Level', 'EXP', 'Mora', "HW"]
+          , colWidths: [7, 11, 11, 5]
         });
-        var arrData = [0, 0, 0];
         
         for (var prop in LvUp) {
-            lvlData = []
-        
-            lvlData.push(`${numFormat(LvUp[prop]["level"])}`);
-            lvlData.push(`${numFormat(LvUp[prop]["exp"])}`);
-            lvlData.push(`${numFormat(LvUp[prop]["mora"])}`);
-            lvlData.push(`${numFormat(LvUp[prop]["hero wit"])}`);
-        
-            table.push(lvlData);
-        
-            arrData[0] += LvUp[prop]["exp"];
-            arrData[1] += LvUp[prop]["mora"];
-            arrData[2] += LvUp[prop]["hero wit"];
+            lvData = [];
+            for (value in LvUp[prop]){
+                if (prop == "level") {
+                    lvData.push(LvUp[prop][value]);
+                } else {
+                    lvData.push(numFormat(LvUp[prop][value]));
+                }
+            }
+            table.push(lvData);
         }
-        
-        table.push(['Total', `${numFormat(arrData[0])}`, `${numFormat(arrData[1])}`, `${numFormat(arrData[2])}`]);
-        
+
         return message.channel.send(`${String.fromCharCode(96,96,96)}${table.toString()}${String.fromCharCode(96,96,96)}`);
     }
 };
