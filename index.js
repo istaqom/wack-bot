@@ -4,41 +4,18 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
-client.aliases = new Discord.Collection()
 
-// const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 client.once('ready', () => {
 	console.log(`Logged in as @${client.user.tag}`);
     client.user.setActivity('Listening to w!', { type: 'LISTENING' });
 });
 
-// for (const file of commandFiles) {
-// 	const command = require(`./commands/${file}`);
-// 	client.commands.set(command.name, command);
-
-// 	if (command.aliases) {
-// 		command.aliases.forEach(alias => {
-// 			client.aliases.set(alias, command)
-// 		})
-// 	}
-// }
-
-fs.readdir(`./commands/`, (error, files) => {
-    if (error) {return console.log("Error while trying to get the commmands.");};
-    files.forEach(file => {
-        const command = require(`./commands/${file}`);
-        const commandName = file.split(".")[0];
-
-        client.commands.set(commandName, command);
-
-        if (command.aliases) {
-            command.aliases.forEach(alias => {
-                client.aliases.set(alias, command);
-            });
-        };
-    });
-});
+for (const file of commandFiles) {
+	const command = require(`./commands/${file}`);
+	client.commands.set(command.name, command);
+}
 
 client.on('message', async message => {
     if (message.content.toLowerCase().includes("istaqom") && !message.author.bot) {
@@ -47,12 +24,20 @@ client.on('message', async message => {
 
 	if (!message.content.startsWith(process.env.PREFIX) || message.author.bot) return;
 
-	const args = message.content.slice(process.env.PREFIX.length).trim().split(/ +/);
-	const commandName = args.shift().toLowerCase();
-	
-	const command = client.commands.get(commandName) || client.aliases.get(commandName);
+	const args = message.content.slice(process.env.PREFIX.length).trim().split(' ');
+	const command = args.shift().toLowerCase();
 
-	if (!command) return;
+	if (command.args && !args.length) {
+		let reply = `You didn't provide any arguments, ${message.author}!`;
+	
+		if (command.usage) {
+			reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
+		}
+	
+		return message.channel.send(reply);
+	}
+	
+    if (!client.commands.has(command)) return;
 
 	try {
 		await client.commands.get(command).execute(message, args);

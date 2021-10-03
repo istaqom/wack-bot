@@ -3,6 +3,8 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'cv',
 	description: 'Calculate artifact CV',
+    args = true,
+    usage = '<Crit Rate> <Crit Damage>',
 	execute(message, args) {
 		if (args.length == 2 && !isNaN(args[0]) && !isNaN(args[1])) {
             let crate = parseFloat(args[0]);
@@ -33,10 +35,6 @@ module.exports = {
 
             return message.channel.send(cvEmbed);
 
-		} else {
-			return message.channel.send(`Insert Crit Rate and Crit Damage!`).then(msg =>{
-                msg.delete({timeout : 10000})
-            });
 		}
 	},
 };
