@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'cv',
 	description: 'Calculate artifact CV',
-    args = true,
+    arguments = true,
     usage = '<Crit Rate> <Crit Damage>',
 	execute(message, args) {
 		if (args.length == 2 && !isNaN(args[0]) && !isNaN(args[1])) {
