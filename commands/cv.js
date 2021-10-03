@@ -13,7 +13,6 @@ module.exports = {
 
             const cvEmbed = new Discord.MessageEmbed()
                 .setColor('0x0099ff')
-                .setTitle('CV Calculation')
                 .addFields(
                     {
                         name: 'Critical Rate',
