@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'ar',
     args : true,
-    usage : "<Current AR> <Target AR> <EXP>",
+    usage : "<Current AR> <Target AR> <Current EXP [OPTIONAL]>",
 	description: 'To count estimated days to reach certain Adventure Rank',
 	execute(message, args) {
         if(isNaN(args[2])){
