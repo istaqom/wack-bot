@@ -1,6 +1,10 @@
 const ar = require('../data/ar.json');
 const Discord = require('discord.js');
 
+function numFormat(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
 module.exports = {
 	name: 'ar',
     args : true,
@@ -34,7 +38,7 @@ module.exports = {
                     .addFields(
                         {
                             name : 'Total EXP Needed',
-                            value : `${parseInt(total)}`,
+                            value : `${numFormat(parseInt(total))}`,
                             inline : true
                         },
                         {
