@@ -36,7 +36,7 @@ client.on('message', async message => {
 		let reply = `You didn't provide any arguments, ${message.author}!`;
 	
 		if (command.usage) {
-			reply += `\nThe proper usage would be: \`${process.env.PREFIX}${command.name} ${command.usage}\``;
+			reply += `\nThe proper usage would be: \n\`${process.env.PREFIX}${command.name} ${command.usage}\``;
 		}
 	
 		argsEmbed.setDescription(reply);
