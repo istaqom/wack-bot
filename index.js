@@ -41,7 +41,9 @@ client.on('message', async message => {
 	
 		argsEmbed.setDescription(reply);
 
-		return message.channel.send(argsEmbed);
+		return message.channel.send(argsEmbed).then(msg =>{
+			msg.delete({timeout : 10000})
+		});;
 	}
 	
     if (!command) return;
