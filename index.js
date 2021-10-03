@@ -30,13 +30,18 @@ client.on('message', async message => {
 		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
 	if (command.args && !args.length) {
+		const argsEmbed = Discord.MessageEmbed()
+			.setColor("#E74C3C")
+
 		let reply = `You didn't provide any arguments, ${message.author}!`;
 	
 		if (command.usage) {
 			reply += `\nThe proper usage would be: \`${process.env.PREFIX}${command.name} ${command.usage}\``;
 		}
 	
-		return message.channel.send(reply);
+		argsEmbed.setDescription(reply);
+
+		return message.channel.send(argsEmbed);
 	}
 	
     if (!command) return;
