@@ -19,7 +19,7 @@ module.exports = {
 
                 return message.channel.send(calcEmbed)
             } catch(err) {
-                console.log(err)
+                console.log(`${err} ${noSpaceArgs}`)
                 return message.channel.send(`Uh-oh something went wrong`).then(msg =>{
                     msg.delete({timeout : 10000})
                 });
