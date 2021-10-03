@@ -30,7 +30,7 @@ client.on('message', async message => {
 	const command = client.commands.get(commandName)
 		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-    if (!client.commands.has(command)) return;
+	if (!command) return;
 
 	try {
 		await client.commands.get(command).execute(message, args);
