@@ -3,8 +3,8 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'cv',
 	description: 'Calculate artifact CV',
-    arguments = true,
-    usage = '<Crit Rate> <Crit Damage>',
+    args: true,
+    usage: '<Crit Rate> <Crit Damage>',
 	execute(message, args) {
 		if (args.length == 2 && !isNaN(args[0]) && !isNaN(args[1])) {
             let crate = parseFloat(args[0]);
