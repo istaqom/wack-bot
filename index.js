@@ -25,7 +25,9 @@ client.on('message', async message => {
 	if (!message.content.startsWith(process.env.PREFIX) || message.author.bot) return;
 
 	const args = message.content.slice(process.env.PREFIX.length).trim().split(' ');
-	const command = args.shift().toLowerCase();
+	const commandName = args.shift().toLowerCase();
+	const command = client.commands.get(commandName)
+		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
 	if (command.args && !args.length) {
 		let reply = `You didn't provide any arguments, ${message.author}!`;
@@ -37,10 +39,10 @@ client.on('message', async message => {
 		return message.channel.send(reply);
 	}
 	
-    if (!client.commands.has(command)) return;
+    if (!command) return;
 
 	try {
-		await client.commands.get(command).execute(message, args);
+		await command.execute(message, args);
 	} catch (error) {
 		console.error(error);
 		await message.reply('there was an error trying to execute that command!');
