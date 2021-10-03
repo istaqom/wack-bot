@@ -7,7 +7,11 @@ module.exports = {
     usage : "<Current AR> <Target AR> <EXP>",
 	description: 'To count estimated days to reach certain Adventure Rank',
 	execute(message, args) {
-		if (args.length == 3 && !isNaN(args[0]) && !isNaN(args[1]) && !isNaN(args[2])) {
+        if(isNaN(args[2])){
+            args[2] = 0;
+        }
+
+		if (args.length == 3 && !isNaN(args[0]) && !isNaN(args[1]) && !isNaN(args[2]) && parseInt(args[0]) < parseInt(args[1])) {
             const curAR = args[0];
             const tarAR = args[1];
             const curEXP = parseInt(args[2]);
@@ -30,12 +34,12 @@ module.exports = {
                     .addFields(
                         {
                             name : 'Total EXP Needed',
-                            value : `${total}`,
+                            value : `${parseInt(total)}`,
                             inline : true
                         },
                         {
                             name : 'Estimated Days',
-                            value : `${estDay}`,
+                            value : `${estDay.toFixed(2)}`,
                             inline : true
                         }
                     )
@@ -50,6 +54,14 @@ module.exports = {
                     msg.delete({timeout : 10000})
                 });
             }
-		}
+		} else if (parseInt(args[0]) > parseInt(args[1])){
+            return message.channel.send(`Bruh your target AR is lower than your current AR`).then(msg =>{
+                msg.delete({timeout : 10000})
+            });
+        } else if (parseInt(args[0]) == parseInt(args[1])){
+            return message.channel.send(`Bruh your already there`).then(msg =>{
+                msg.delete({timeout : 10000})
+            });
+        }
 	},
 };
