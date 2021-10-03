@@ -6,23 +6,39 @@ const client = new Discord.Client();
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection()
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+// const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 client.once('ready', () => {
 	console.log(`Logged in as @${client.user.tag}`);
     client.user.setActivity('Listening to w!', { type: 'LISTENING' });
 });
 
-for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
-	client.commands.set(command.name, command);
+// for (const file of commandFiles) {
+// 	const command = require(`./commands/${file}`);
+// 	client.commands.set(command.name, command);
 
-	if (command.aliases) {
-		command.aliases.forEach(alias => {
-			client.aliases.set(alias, command)
-		})
-	}
-}
+// 	if (command.aliases) {
+// 		command.aliases.forEach(alias => {
+// 			client.aliases.set(alias, command)
+// 		})
+// 	}
+// }
+
+fs.readdir(`./commands/`, (error, files) => {
+    if (error) {return console.log("Error while trying to get the commmands.");};
+    files.forEach(file => {
+        const command = require(`./commands/${file}`);
+        const commandName = file.split(".")[0];
+
+        client.commands.set(commandName, command);
+
+        if (command.aliases) {
+            command.aliases.forEach(alias => {
+                client.aliases.set(alias, command);
+            });
+        };
+    });
+});
 
 client.on('message', async message => {
     if (message.content.toLowerCase().includes("istaqom") && !message.author.bot) {
