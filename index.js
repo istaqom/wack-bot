@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection()
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
@@ -15,6 +16,12 @@ client.once('ready', () => {
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.name, command);
+
+	if (command.aliases) {
+		command.aliases.forEach(alias => {
+			client.aliases.set(alias, command)
+		})
+	}
 }
 
 client.on('message', async message => {
@@ -27,8 +34,7 @@ client.on('message', async message => {
 	const args = message.content.slice(process.env.PREFIX.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
 	
-	const command = client.commands.get(commandName)
-		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+	const command = client.commands.get(commandName) || client.aliases.get(commandName);
 
 	if (!command) return;
 
