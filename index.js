@@ -27,7 +27,7 @@ client.on('message', async message => {
 	const args = message.content.slice(process.env.PREFIX.length).trim().split(' ');
 	const command = args.shift().toLowerCase();
 
-	if (command.arguments && !args.length) {
+	if (command.args && !args.length) {
 		let reply = `You didn't provide any arguments, ${message.author}!`;
 	
 		if (command.usage) {
