@@ -30,7 +30,7 @@ client.on('message', async message => {
 		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
 	if (command.args && !args.length) {
-		const argsEmbed = Discord.MessageEmbed()
+		const argsEmbed = new Discord.MessageEmbed()
 			.setColor("#E74C3C")
 
 		let reply = `You didn't provide any arguments, ${message.author}!`;
