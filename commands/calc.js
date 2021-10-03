@@ -8,7 +8,7 @@ module.exports = {
     execute(message, args) {
         if (args.length) {
             try {
-                calculate = strMath(`${args}`)
+                calculate = strMath(`${args.replace(/\s/g,'')}`)
 
                 const calcEmbed = new Discord.MessageEmbed()
                     .setColor('0x0099ff')
