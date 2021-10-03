@@ -1,42 +1,55 @@
 const ar = require('../data/ar.json');
+const Discord = require('discord.js');
 
 module.exports = {
-	name: 'ar', 
+	name: 'ar',
+    args : true,
+    usage : "<Current AR> <Target AR> <EXP>",
 	description: 'To count estimated days to reach certain Adventure Rank',
 	execute(message, args) {
-		if (args.length == 2 && !isNaN(args[0]) && !isNaN(args[1])) {
-            let crate = parseFloat(args[0]);
-            let cdmg = parseFloat(args[1]);
-            let cv = parseFloat((crate * 2) + cdmg);
+		if (args.length == 3 && !isNaN(args[0]) && !isNaN(args[1]) && !isNaN(args[2])) {
+            const curAR = args[0];
+            const tarAR = args[1];
+            const curEXP = parseInt(args[2]);
 
-            const cvEmbed = new Discord.MessageEmbed()
-                .setColor('0x0099ff')
-                .setTitle('CV Calculation')
-                .addFields(
-                    {
-                        name: 'Current AR',
-                        value: `${crate}`,
-                        inline: true,
-                    },
-                    {
-                        name: 'Current EXP',
-                        value: `${cdmg}`,
-                        inline: true,
-                    },
-                    {
-                        name: 'Wanted AR',
-                        value: `${cv}`,
-                        inline: true,
-                    },
-                )
-                .setTimestamp()
+            const resin = 180;
+            const exp_20 = 100;
 
-            return message.channel.send(cvEmbed);
+            const exp_resin_day = resin / 20 * exp_20;
+            const daily = 500 + (4 * 250);
 
-		} else {
-			return message.channel.send(`Insert Crit Rate and Crit Damage!`).then(msg =>{
-                msg.delete({timeout : 10000})
-            });
+            const exp_day = daily + exp_resin_day;
+
+            try {
+                total = ar[tarAR] - ar[curAR] - curEXP;
+                total = total.toFixed(2);
+                estDay = total / exp_day;
+
+                const embed = new Discord.MessageEmbed()
+                    .setColor('#2ECC71')
+                    .addFields(
+                        {
+                            name : 'Total EXP Needed',
+                            value : `${total}`,
+                            inline : true
+                        },
+                        {
+                            name : 'Estimated Days',
+                            value : `${estDay}`,
+                            inline : true
+                        }
+                    )
+                    .setFooter("Estimated days is Daily Commision + 180 Resin per day")
+                    .setTimestamp()
+
+                return message.channel.send(embed);
+
+            } catch(err) {
+                console.log(err);
+                return message.channel.send(`Uh-oh something went wrong`).then(msg =>{
+                    msg.delete({timeout : 10000})
+                });
+            }
 		}
 	},
 };

@@ -14,7 +14,7 @@ module.exports = {
                 calculate = strMath(`${noSpaceArgs}`)
 
                 const calcEmbed = new Discord.MessageEmbed()
-                    .setColor('0x0099ff')
+                    .setColor('#2ECC71')
                     .setDescription(`${noSpaceArgs} = ${calculate}`)
 
                 return message.channel.send(calcEmbed)
@@ -24,10 +24,6 @@ module.exports = {
                     msg.delete({timeout : 10000})
                 });
             }
-        } else {
-            return message.channel.send(`Gimme somethin to calculate m8`).then(msg =>{
-                msg.delete({timeout : 10000})
-            });
         }
     }
 };
