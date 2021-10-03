@@ -10,7 +10,7 @@ module.exports = {
     execute(message, args) {
         if (args.length) {
             try {
-                noSpaceArgs = args.toString().replace(/[, ]+/g,'').trim();
+                noSpaceArgs = args.toString().replace(/[, A-Za-z]+/g,'').trim();
                 calculate = strMath(`${noSpaceArgs}`)
 
                 const calcEmbed = new Discord.MessageEmbed()
