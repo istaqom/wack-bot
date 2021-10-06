@@ -18,9 +18,13 @@ for (const file of commandFiles) {
 }
 
 client.on('message', async message => {
-    if (message.content.toLowerCase().includes("istaqom") && !message.author.bot) {
+	const inputEaster = message.content.toLowerCase().replace(/[\s,.-]+/g,'').trim();
+
+    if (inputEaster.includes("istaqom") && !message.author.bot) {
         await message.react('793517709543211028');
-    }
+    } else if (inputEaster.includes("qony") && !message.author.bot) {
+		await message.react('793475527004520459');
+	}
 
 	if (!message.content.startsWith(process.env.PREFIX) || message.author.bot) return;
 
