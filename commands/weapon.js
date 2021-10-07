@@ -5,7 +5,7 @@ module.exports = {
     usage: "<stars>",
     aliases: ['weap'],
     execute(message, args){
-        if (!args.length) {
+        if (args.length != 0) {
             if (args[0] == "3") {
                 return message.channel.send("Image by Adiim EF", {
                     files: [{
