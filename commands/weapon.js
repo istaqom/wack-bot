@@ -2,7 +2,8 @@ module.exports = {
     name: 'weapon',
 	description: 'Show weapon material',
     args: true,
-    usage:"<stars>",
+    usage: "<stars>",
+    aliases: ['weap'],
     execute(message, args){
         if (!args.length) {
             if (args[0] == "3") {

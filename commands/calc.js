@@ -3,10 +3,10 @@ const Discord = require('discord.js');
 
 module.exports = {
     name : 'calc',
+    descrition : 'To calculate',
     args : true,
     usage : '<something to calculate>',
     aliases : ['c'],
-    descrition : 'To calculate',
     execute(message, args) {
         if (args.length) {
             try {

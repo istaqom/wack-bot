@@ -12,17 +12,19 @@ module.exports = {
             let cv = parseFloat((crate * 2) + cdmg);
 
             if (cv >= 0 && cv <= 10) {
-                quality = "Your artifact is garbage";
+                quality = "Your artifact is GARBAGE!";
             } else if (cv > 10 && cv <= 20) {
-                quality = "Your artifact is average";
+                quality = "Your artifact is AVERAGE!";
             } else if (cv > 20 && cv <= 30) {
-                quality = "Your artifact is decent";
+                quality = "Your artifact is DECENT!";
             } else if (cv > 30 && cv <= 40) {
-                quality = "Your artifact is very good";
+                quality = "Your artifact is VERY GOOD!";
             } else if (cv > 40 && cv <= 50) {
-                quality = "Your artifact is jewel";
+                quality = "Your artifact is JEWEL!";
             } else if (cv > 50 && cv <= 60) {
-                quality = "Your artifact is godsent";
+                quality = "Your artifact is GODSENT";
+            } else {
+                quality = "Your artifact didn't exist";
             }
 
             const cvEmbed = new Discord.MessageEmbed()
