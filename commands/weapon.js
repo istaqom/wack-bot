@@ -27,6 +27,8 @@ module.exports = {
                         name: '5-Star Weapon EXP.jpg'
                     }]
                 });
+            } else {
+                return message.channel.send("There's only \'3, 4 and 5\`");
             }
         }
     }
