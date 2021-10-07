@@ -11,7 +11,7 @@ module.exports = {
             let cdmg = parseFloat(args[1]);
             let cv = parseFloat((crate * 2) + cdmg);
 
-            if (cv >= 0 && cv <= 10) {
+            if (cv <= 10) {
                 quality = "Your artifact is GARBAGE!";
             } else if (cv > 10 && cv <= 20) {
                 quality = "Your artifact is AVERAGE!";
