@@ -4,7 +4,7 @@ module.exports = {
     execute(message){
         return message.channel.send("Image by Adiim EF", {
             files: [{
-                attachment: '../images/Character EXP.jpg',
+                attachment: './images/Character EXP.jpg',
                 name: 'Character EXP.jpg'
             }]
         });
