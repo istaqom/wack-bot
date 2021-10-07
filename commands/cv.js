@@ -11,7 +11,22 @@ module.exports = {
             let cdmg = parseFloat(args[1]);
             let cv = parseFloat((crate * 2) + cdmg);
 
+            if (cv >= 0 && cv <= 10) {
+                quality = "Your artifact is garbage";
+            } else if (cv > 10 && cv <= 20) {
+                quality = "Your artifact is average";
+            } else if (cv > 20 && cv <= 30) {
+                quality = "Your artifact is decent";
+            } else if (cv > 30 && cv <= 40) {
+                quality = "Your artifact is very good";
+            } else if (cv > 40 && cv <= 50) {
+                quality = "Your artifact is jewel";
+            } else if (cv > 50 && cv <= 60) {
+                quality = "Your artifact is godsent";
+            }
+
             const cvEmbed = new Discord.MessageEmbed()
+                .setTitle(quality)
                 .setColor('0x0099ff')
                 .addFields(
                     {
