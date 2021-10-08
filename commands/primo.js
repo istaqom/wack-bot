@@ -7,10 +7,13 @@ module.exports = {
     usage: '<Starting Primogems> <End date (DD/MM/YYYY format)>',
     execute(message, args) {
         const dateInput = args[1].split("/");
-
         const dateToday = new Date();
-        dateToday = new Date(`${dateToday.getMonth()+1}/${dateToday.getDate()}/${dateToday.getFullYear()}`)
-        const dateEnd = new Date(`${dateInput[1]}/${dateInput[0]}/${dateInput[2]}`);
+        var m = dateToday.getMonth()+1;
+        var d = dateToday.getDay();
+        var y = dateToday.getFullYear();
+
+        dateToday = new Date(y, m, d)
+        const dateEnd = new Date(dateInput[2], dateInput[1], dateInput[0]);
 
         if (dateEnd.getTime() > dateToday.getTime()) {
             return message.channel.send("What the hell, you can rewind time?");
