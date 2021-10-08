@@ -8,7 +8,7 @@ module.exports = {
     execute(message, args) {
         const dateInput = args[1].split("/");
 
-        const dateToday = Date.now();
+        const dateToday = new Date();
         const dateEnd = new Date(`${dateInput[1]}/${dateInput[0]}/${dateInput[2]}`);
 
         if (dateEnd.getTime() > dateToday.getTime()) {
