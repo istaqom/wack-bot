@@ -9,6 +9,7 @@ module.exports = {
         const dateInput = args[1].split("/");
 
         const dateToday = new Date();
+        dateToday = new Date(`${dateToday.getMonth()+1}/${dateToday.getDate()}/${dateToday.getFullYear()}`)
         const dateEnd = new Date(`${dateInput[1]}/${dateInput[0]}/${dateInput[2]}`);
 
         if (dateEnd.getTime() > dateToday.getTime()) {
