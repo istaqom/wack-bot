@@ -8,8 +8,12 @@ module.exports = {
     execute(message, args) {
         const dateInput = args[1].split("/");
 
-        const dateToday = new Date.now();
+        const dateToday = Date.now();
         const dateEnd = new Date(`${dateInput[1]}/${dateInput[0]}/${dateInput[2]}`);
+
+        if (dateEnd.getTime() > dateToday.getTime()) {
+            return message.channel.send("What the hell, you can rewind time?");
+        }
 
         const diffTime = dateEnd.getTime() - dateToday.getTime();
         const diffDay = diffTime / (1000 * 3600 * 24);
