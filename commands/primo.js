@@ -7,7 +7,7 @@ module.exports = {
     usage: '<Starting Primogems> <End date (DD/MM/YYYY format)>',
     execute(message, args) {
         const dateInput = args[1].split("/");
-        const dateToday = new Date();
+        dateToday = new Date();
         var m = dateToday.getMonth()+1;
         var d = dateToday.getDay();
         var y = dateToday.getFullYear();
