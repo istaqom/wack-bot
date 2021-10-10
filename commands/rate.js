@@ -77,13 +77,13 @@ module.exports = {
 
                             /* Stats Condition */
 
-                            var critRateCond = item.startsWith("Crit Rate");
-                            var critDMGCond = item.startsWith("Crit DMG");
+                            var critRateCond = item.includes(("Crit Rate")) || item.startsWith("Crit Rate");
+                            var critDMGCond = item.includes(("Crit DMG")) || item.startsWith("Crit DMG");
                             var erCond = item.startsWith("Energy");
                             var emCond = item.startsWith("Elemental");
-                            var atkCond = item.includes("ATK+") || item.startsWith("ATK");
-                            var defCond = item.includes("DEF+") || item.startsWith("DEF");
-                            var hpCond = item.includes("HP+") || item.startsWith("HP");
+                            var atkCond = item.includes("ATK") || item.startsWith("ATK");
+                            var defCond = item.includes("DEF") || item.startsWith("DEF");
+                            var hpCond = item.includes("HP") || item.startsWith("HP");
 
                             /* Elemental Condition */
 
