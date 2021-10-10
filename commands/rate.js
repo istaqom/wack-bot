@@ -38,8 +38,8 @@ module.exports = {
                 var form = new formData();
                 form.append('url', compressedImg);
                 form.append('filetype', 'png');
-                form.append('OCREngine', '2');
                 form.append('scale', 'true');
+                form.append('OCREngine', '2');
 
                 var options = {
                     headers: {
