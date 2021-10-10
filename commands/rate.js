@@ -77,7 +77,7 @@ module.exports = {
 
                             /* Stats Condition */
 
-                            var critRateCond = item.includes(("Crit Rate+")) || item.startsWith("Crit Rate") || item.startsWith("CRIT RATE") || item.startsWith("CRIF Raté");
+                            var critRateCond = item.includes(("Crit Rate+")) || item.startsWith("Crit Rate") || item.startsWith("CRIT RATE") || item.startsWith("CRIF Ratė");
                             var critDMGCond = item.includes(("Crit DMG+")) || item.startsWith("Crit DMG") || item.startsWith("CRIT DMG");
                             var erCond = item.startsWith("Energy");
                             var emCond = item.startsWith("Elemental");
