@@ -39,6 +39,7 @@ module.exports = {
                 form.append('url', compressedImg);
                 form.append('filetype', 'png');
                 form.append('OCREngine', '2');
+                form.append('scale', 'true');
 
                 var options = {
                     headers: {
