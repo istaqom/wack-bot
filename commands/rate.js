@@ -42,7 +42,7 @@ module.exports = {
 
                 var options = {
                     headers: {
-                        apikey: process.env.OCRAPI,
+                        apikey: `${process.env.OCRAPI}`,
                         ...form.getHeaders()
                     }
                 }
