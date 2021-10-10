@@ -3,3 +3,6 @@ bot-backup/
 commands-backup/
 index-copy.js
 config.json
+img/
+CheckerArtifact.py
+test/

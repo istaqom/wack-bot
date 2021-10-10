@@ -22,7 +22,7 @@ module.exports = {
             } else if (cv > 40 && cv <= 50) {
                 quality = "Your artifact is JEWEL!";
             } else if (cv > 50 && cv <= 60) {
-                quality = "Your artifact is GODSENT";
+                quality = "Your artifact is GODSENT!";
             } else {
                 quality = "Your artifact didn't exist";
             }
