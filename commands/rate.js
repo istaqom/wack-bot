@@ -54,7 +54,7 @@ module.exports = {
                         var dataResult = res.data.ParsedResults[0].ParsedText.split("\n");
                         var mainStat = 0;
 
-                        // console.log(dataResult)
+                        console.log(dataResult)
 
                         for (item of dataResult) {
                             var folCond = item.startsWith("Flower of Life");
@@ -153,7 +153,7 @@ module.exports = {
 
                             if ((critRateCond || critDMGCond || emCond || erCond || atkCond || defCond || hpCond) && mainStat == 1) {
 
-                                console.log(item);
+                                // console.log(item);
 
                                 try {
                                     if (critRateCond) {
