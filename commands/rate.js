@@ -121,55 +121,55 @@ module.exports = {
                   mainStat == 0
                 ) {
                   // console.log(item)
-                  word += `\*\*Main Stat : \*\*\n`;
+                  // word += `\*\*Main Stat : \*\*\n`;
                   if (critRateCond) {
-                    word += `Crit Rate`;
+                    word += `\*\*Crit Rate\*\*`;
                   } else if (critDMGCond) {
-                    word += `Crit DMG`;
+                    word += `\*\*Crit DMG\*\*`;
                   } else if (emCond) {
-                    word += `Elemental Mastery`;
+                    word += `\*\*Elemental Mastery\*\*`;
                   } else if (erCond) {
-                    word += `Energy Recharge`;
+                    word += `\*\*Energy Recharge\*\*`;
                   } else if (atkCond) {
                     if (item.includes("%")) {
-                      word += `ATK%`;
+                      word += `\*\*ATK%\*\*`;
                     } else {
-                      word += `ATK`;
+                      word += `\*\*ATK\*\*`;
                     }
                   } else if (defCond) {
                     if (item.includes("%")) {
-                      word += `DEF%`;
+                      word += `\*\*DEF%\*\*`;
                     } else {
-                      word += `DEF`;
+                      word += `\*\*DEF\*\*`;
                     }
                   } else if (hpCond) {
                     if (item.includes("%")) {
-                      word += `HP%`;
+                      word += `\*\*HP%\*\*`;
                     } else {
-                      word += `HP`;
+                      word += `\*\*HP\*\*`;
                     }
                   } else if (physicalCond) {
-                    word += `Physical DMG Bonus`;
+                    word += `\*\*Physical DMG Bonus\*\*`;
                   } else if (electroCond) {
-                    word += `Electro DMG Bonus`;
+                    word += `\*\*Electro DMG Bonus\*\*`;
                   } else if (hydroCond) {
-                    word += `Hydro DMG Bonus`;
+                    word += `\*\*Hydro DMG Bonus\*\*`;
                   } else if (geoCond) {
-                    word += `Geo DMG Bonus`;
+                    word += `\*\*Geo DMG Bonus\*\*`;
                   } else if (pyroCond) {
-                    word += `Pyro DMG Bonus`;
+                    word += `\*\*Pyro DMG Bonus\*\*`;
                   } else if (anemoCond) {
-                    word += `Anemo DMG Bonus`;
+                    word += `\*\*Anemo DMG Bonus\*\*`;
                   } else if (cryoCond) {
-                    word += `Cryo DMG Bonus`;
+                    word += `\*\*Cryo DMG Bonus\*\*`;
                   } else if (dendroCond) {
-                    word += `Dendro DMG Bonus`;
+                    word += `\*\*Dendro DMG Bonus\*\*`;
                   }
                   mainStat += 1;
                   continue;
                 } else if (mainStat == 1) {
                   if (/\d/.test(item)) {
-                    word += ` ${item}\n\n`;
+                    word += ` \*\*:\*\* ${item}\n\n`;
                     mainStat += 1;
                   }
                 }
