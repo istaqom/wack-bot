@@ -36,6 +36,7 @@ module.exports = {
 
           var form = new formData();
           form.append("url", compressedImg);
+          form.append("language", "eng");
           form.append("filetype", "png");
           form.append("scale", "true");
           form.append("OCREngine", "2");
@@ -79,8 +80,7 @@ module.exports = {
                 var critRateCond =
                   item.includes("CRIT Rate+") ||
                   item.startsWith("CRIT Rate") ||
-                  item.startsWith("CRIT RATE") ||
-                  item.startsWith("CRIF Ratė");
+                  item.startsWith("CRIT RATE");
                 var critDMGCond =
                   item.includes("CRIT DMG+") ||
                   item.startsWith("CRIT DMG") ||
@@ -257,8 +257,6 @@ module.exports = {
                 }
               }
 
-              word += "**Sub Stat**\n";
-
               if (crate != 0.0) {
                 word += `\*\*Crit Rate :\*\* ${crate}%\n`;
               }
@@ -312,6 +310,7 @@ module.exports = {
 
               const embed = new Discord.MessageEmbed()
                 .setColor("#2ECC71")
+                .setAuthor(member.user.tag, member.user.displayAvatarURL)
                 .setTitle(artifactUser)
                 .setDescription(word)
                 .setTimestamp();
