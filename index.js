@@ -11,7 +11,7 @@ const commandFiles = fs
 
 client.once("ready", () => {
   console.log(`Logged in as @${client.user.tag}`);
-  client.user.setActivity("Listening to w!", { type: "LISTENING" });
+  client.user.setActivity("w!", { type: "LISTENING" });
 });
 
 for (const file of commandFiles) {
