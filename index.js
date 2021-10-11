@@ -1,63 +1,74 @@
-const fs = require('fs');
-const Discord = require('discord.js');
+const fs = require("fs");
+const Discord = require("discord.js");
 // const { token, prefix } = require('./config.json');
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFiles = fs
+  .readdirSync("./commands")
+  .filter((file) => file.endsWith(".js"));
 
-client.once('ready', () => {
-	console.log(`Logged in as @${client.user.tag}`);
-    client.user.setActivity('Listening to w!', { type: 'LISTENING' });
+client.once("ready", () => {
+  console.log(`Logged in as @${client.user.tag}`);
+  client.user.setActivity("Listening to w!", { type: "LISTENING" });
 });
 
 for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
-	client.commands.set(command.name, command);
+  const command = require(`./commands/${file}`);
+  client.commands.set(command.name, command);
 }
 
-client.on('message', async message => {
-	const inputEaster = message.content.toLowerCase().replace(/[\s,.-]+/g,'').trim();
+client.on("message", async (message) => {
+  const inputEaster = message.content
+    .toLowerCase()
+    .replace(/[\s,.-]+/g, "")
+    .trim();
 
-    if (inputEaster.includes("istaqom") && !message.author.bot) {
-        await message.react('793517709543211028');
-    } else if (inputEaster.includes("qony") && !message.author.bot) {
-		await message.react('793475527004520459');
-	}
+  if (inputEaster.includes("istaqom") && !message.author.bot) {
+    await message.react("793517709543211028");
+  } else if (inputEaster.includes("qony") && !message.author.bot) {
+    await message.react("793475527004520459");
+  }
 
-	if (!message.content.startsWith(process.env.PREFIX) || message.author.bot) return;
+  if (!message.content.startsWith(process.env.PREFIX) || message.author.bot)
+    return;
 
-	const args = message.content.slice(process.env.PREFIX.length).trim().split(' ');
-	const commandName = args.shift().toLowerCase();
-	const command = client.commands.get(commandName)
-		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+  const args = message.content
+    .slice(process.env.PREFIX.length)
+    .trim()
+    .split(" ");
+  const commandName = args.shift().toLowerCase();
+  const command =
+    client.commands.get(commandName) ||
+    client.commands.find(
+      (cmd) => cmd.aliases && cmd.aliases.includes(commandName)
+    );
 
-	if (command.args && !args.length) {
-		const argsEmbed = new Discord.MessageEmbed()
-			.setColor("#E74C3C")
+  if (command.args && !args.length) {
+    const argsEmbed = new Discord.MessageEmbed().setColor("#E74C3C");
 
-		let reply = `You didn't provide any arguments, ${message.author}!`;
-	
-		if (command.usage) {
-			reply += `\nThe proper usage would be: \n\`${process.env.PREFIX}${command.name} ${command.usage}\``;
-		}
-	
-		argsEmbed.setDescription(reply);
+    let reply = `You didn't provide any arguments, ${message.author}!`;
 
-		return message.channel.send(argsEmbed).then(msg =>{
-			msg.delete({timeout : 10000})
-		});;
-	}
-	
-    if (!command) return;
+    if (command.usage) {
+      reply += `\nThe proper usage would be: \n\`${process.env.PREFIX}${command.name} ${command.usage}\``;
+    }
 
-	try {
-		await command.execute(message, args);
-	} catch (error) {
-		console.error(error);
-		await message.reply('there was an error trying to execute that command!');
-	}
+    argsEmbed.setDescription(reply);
+
+    return message.channel.send(argsEmbed).then((msg) => {
+      msg.delete({ timeout: 10000 });
+    });
+  }
+
+  if (!command) return;
+
+  try {
+    await command.execute(message, args);
+  } catch (error) {
+    console.error(error);
+    await message.reply("there was an error trying to execute that command!");
+  }
 });
 
 client.login(process.env.TOKEN);
