@@ -43,7 +43,7 @@ module.exports = {
                     },
                     {
                         name: 'CV',
-                        value: `${cv}`,
+                        value: `${cv.toFixed(2)}`,
                         inline: true,
                     },
                 )
