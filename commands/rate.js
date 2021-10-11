@@ -310,7 +310,7 @@ module.exports = {
 
               const embed = new Discord.MessageEmbed()
                 .setColor("#2ECC71")
-                .setAuthor(message.user.tag, message.user.displayAvatarURL)
+                .setAuthor(message.author.tag, message.author.displayAvatarURL)
                 .setTitle(artifactUser)
                 .setDescription(word)
                 .setTimestamp();
