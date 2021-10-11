@@ -121,52 +121,57 @@ module.exports = {
                   mainStat == 0
                 ) {
                   // console.log(item)
-                  word += `\*\*Main Stat : \*\*`;
+                  word += `\*\*Main Stat : \*\*\n`;
                   if (critRateCond) {
-                    word += `Crit Rate\n\n`;
+                    word += `Crit Rate`;
                   } else if (critDMGCond) {
-                    word += `Crit DMG\n\n`;
+                    word += `Crit DMG`;
                   } else if (emCond) {
-                    word += `Elemental Mastery\n\n`;
+                    word += `Elemental Mastery`;
                   } else if (erCond) {
-                    word += `Energy Recharge\n\n`;
+                    word += `Energy Recharge`;
                   } else if (atkCond) {
                     if (item.includes("%")) {
-                      word += `ATK%\n\n`;
+                      word += `ATK%`;
                     } else {
-                      word += `ATK\n\n`;
+                      word += `ATK`;
                     }
                   } else if (defCond) {
                     if (item.includes("%")) {
-                      word += `DEF%\n\n`;
+                      word += `DEF%`;
                     } else {
-                      word += `DEF\n\n`;
+                      word += `DEF`;
                     }
                   } else if (hpCond) {
                     if (item.includes("%")) {
-                      word += `HP%\n\n`;
+                      word += `HP%`;
                     } else {
-                      word += `HP\n\n`;
+                      word += `HP`;
                     }
                   } else if (physicalCond) {
-                    word += `Physical DMG Bonus\n\n`;
+                    word += `Physical DMG Bonus`;
                   } else if (electroCond) {
-                    word += `Electro DMG Bonus\n\n`;
+                    word += `Electro DMG Bonus`;
                   } else if (hydroCond) {
-                    word += `Hydro DMG Bonus\n\n`;
+                    word += `Hydro DMG Bonus`;
                   } else if (geoCond) {
-                    word += `Geo DMG Bonus\n\n`;
+                    word += `Geo DMG Bonus`;
                   } else if (pyroCond) {
-                    word += `Pyro DMG Bonus\n\n`;
+                    word += `Pyro DMG Bonus`;
                   } else if (anemoCond) {
-                    word += `Anemo DMG Bonus\n\n`;
+                    word += `Anemo DMG Bonus`;
                   } else if (cryoCond) {
-                    word += `Cryo DMG Bonus\n\n`;
+                    word += `Cryo DMG Bonus`;
                   } else if (dendroCond) {
-                    word += `Dendro DMG Bonus\n\n`;
+                    word += `Dendro DMG Bonus`;
                   }
                   mainStat += 1;
                   continue;
+                } else if (mainStat == 1) {
+                  if (/\d/.test(item)) {
+                    word += ` ${item}\n\n`;
+                    mainStat += 1;
+                  }
                 }
 
                 if (item.includes("Equipped")) {
@@ -182,7 +187,7 @@ module.exports = {
                     atkCond ||
                     defCond ||
                     hpCond) &&
-                  mainStat == 1
+                  mainStat == 2
                 ) {
                   // console.log(item);
 
@@ -310,7 +315,7 @@ module.exports = {
 
               const embed = new Discord.MessageEmbed()
                 .setColor("#2ECC71")
-                .setAuthor(message.author.tag, message.author.displayAvatarURL)
+                .setAuthor(message.author.tag, message.author.avatarURL())
                 .setTitle(artifactUser)
                 .setDescription(word)
                 .setTimestamp();
