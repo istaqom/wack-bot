@@ -168,8 +168,11 @@ module.exports = {
                   mainStat += 1;
                   continue;
                 } else if (mainStat == 1) {
-                  if (/\d/.test(item)) {
-                    word += ` \*\*:\*\* ${Math.abs(item)}\n\n`;
+                  let stats = item
+                    .replace(/[A-Za-z.]+/g, "")
+                    .replace(/[,]/g, ".");
+                  if (/\d/.test(stats)) {
+                    word += ` \*\*:\*\* ${stats}\n\n`;
                     mainStat += 1;
                   }
                 }
