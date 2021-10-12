@@ -1,6 +1,6 @@
 {
     "senkam" : {
-        "weapon" : {
+        "weapons" : {
             "mondstadt" : "Decarabian",
             "liyue" : "Guyun",
             "inazuma" : "Branch of a Distant Sea"
@@ -12,7 +12,7 @@
         }
     },
     "seljum" : {
-        "weapon" : {
+        "weapons" : {
             "mondstadt" : "Boreal Wolf",
             "liyue" : "Mist Veiled Elixir",
             "inazuma" : "Narukami's"
@@ -24,7 +24,7 @@
         }
     },
     "rasab" : {
-        "weapon" : {
+        "weapons" : {
             "mondstadt" : "Dandelion Gladiator",
             "liyue" : "Aerosiderite",
             "inazuma" : "Mask"
