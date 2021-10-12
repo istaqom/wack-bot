@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 module.exports = {
   name: "daily",
   description: "Check daily domain material",
-  alias: ["d"],
+  aliases: ["d"],
   execute(message, args) {
     var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     var word = "";
