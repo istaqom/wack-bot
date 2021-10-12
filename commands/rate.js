@@ -169,7 +169,7 @@ module.exports = {
                   continue;
                 } else if (mainStat == 1) {
                   if (/\d/.test(item)) {
-                    word += ` \*\*:\*\* ${item}\n\n`;
+                    word += ` \*\*:\*\* ${Math.abs(item)}\n\n`;
                     mainStat += 1;
                   }
                 }
