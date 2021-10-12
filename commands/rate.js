@@ -263,34 +263,34 @@ module.exports = {
               }
 
               if (crate != 0.0) {
-                word += `\*\*Crit Rate :\*\* ${crate}%\n`;
+                word += `\*\*Crit Rate :\*\* ${Math.abs(crate)}%\n`;
               }
               if (cdmg != 0.0) {
-                word += `\*\*Crit DMG :\*\* ${cdmg}%\n`;
+                word += `\*\*Crit DMG :\*\* ${Math.abs(cdmg)}%\n`;
               }
               if (er != 0.0) {
-                word += `\*\*Energy Recharge :\*\* ${er}%\n`;
+                word += `\*\*Energy Recharge :\*\* ${Math.abs(er)}%\n`;
               }
               if (em != 0) {
-                word += `\*\*Elemental Mastery :\*\* ${em}\n`;
+                word += `\*\*Elemental Mastery :\*\* ${Math.abs(em)}\n`;
               }
               if (atkPercent != 0.0) {
-                word += `\*\*ATK% :\*\* ${atkPercent}%\n`;
+                word += `\*\*ATK% :\*\* ${Math.abs(atkPercent)}%\n`;
               }
               if (atk != 0) {
-                word += `\*\*ATK :\*\* ${atk}\n`;
+                word += `\*\*ATK :\*\* ${Math.abs(atk)}\n`;
               }
               if (defPercent != 0.0) {
-                word += `\*\*DEF% :\*\* ${defPercent}%\n`;
+                word += `\*\*DEF% :\*\* ${Math.abs(defPercent)}%\n`;
               }
               if (def != 0) {
-                word += `\*\*DEF :\*\* ${def}\n`;
+                word += `\*\*DEF :\*\* ${Math.abs(def)}\n`;
               }
               if (hpPercent != 0.0) {
-                word += `\*\*HP% :\*\* ${hpPercent}%\n`;
+                word += `\*\*HP% :\*\* ${Math.abs(hpPercent)}%\n`;
               }
               if (hp != 0) {
-                word += `\*\*HP :\*\* ${hp}\n`;
+                word += `\*\*HP :\*\* ${Math.abs(hp)}\n`;
               }
 
               var cv = (crate * 2 + cdmg).toFixed(2);
