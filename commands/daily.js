@@ -22,30 +22,36 @@ module.exports = {
     });
     todayDateTime = new Date(todayDateTime);
 
+    if (typeof args[0] !== "undefined") {
+      dayInput = String(args[0]);
+    } else {
+      dayInput = "";
+    }
+
     if (
       days[todayDateTime.getDay()] == "Monday" ||
       days[todayDateTime.getDay()] == "Thursday" ||
-      args[0].toLowerCase().trim() == "senin" ||
-      args[0].toLowerCase().trim() == "kamis"
+      dayInput.toLowerCase().trim() == "senin" ||
+      dayInput.toLowerCase().trim() == "kamis"
     ) {
       todayData = dailyData["senkam"];
     } else if (
       days[todayDateTime.getDay()] == "Tuesday" ||
       days[todayDateTime.getDay()] == "Friday" ||
-      args[0].toLowerCase().trim() == "selasa" ||
-      args[0].toLowerCase().trim() == "jumat"
+      dayInput.toLowerCase().trim() == "selasa" ||
+      dayInput.toLowerCase().trim() == "jumat"
     ) {
       todayData = dailyData["seljum"];
     } else if (
       days[todayDateTime.getDay()] == "Wednesday" ||
       days[todayDateTime.getDay()] == "Saturday" ||
-      args[0].toLowerCase().trim() == "rabu" ||
-      args[0].toLowerCase().trim() == "sabtu"
+      dayInput.toLowerCase().trim() == "rabu" ||
+      dayInput.toLowerCase().trim() == "sabtu"
     ) {
       todayData = dailyData["rasab"];
     } else if (
       days[todayDateTime.getDay()] == "Sunday" ||
-      args[0].toLowerCase().trim() == "minggu"
+      dayInput.toLowerCase().trim() == "minggu"
     ) {
       todayData = dailyData["minggu"];
     }
@@ -68,7 +74,7 @@ module.exports = {
         .setDescription(word)
         .setTimestamp();
 
-        return message.channel.send(embed);
+      return message.channel.send(embed);
     }
   },
 };
