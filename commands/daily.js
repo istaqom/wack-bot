@@ -73,7 +73,7 @@ module.exports = {
       var embed = new Discord.MessageEmbed()
         .setColor("#2ECC71")
         .setAuthor(message.author.tag, message.author.avatarURL())
-        .setTitle(`${days[todayDateTime.getDay()]} Materials`)
+        .setTitle(`${(typeof args[0] == "undefined") ? days[todayDateTime.getDay()] : args[0]} Materials`)
         .setDescription(word)
         .setTimestamp();
 
