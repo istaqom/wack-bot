@@ -85,8 +85,8 @@ module.exports = {
                   item.includes("CRIT DMG+") ||
                   item.startsWith("CRIT DMG") ||
                   item.startsWith("CRIT DMG");
-                var erCond = item.startsWith("Energy");
-                var emCond = item.startsWith("Elemental");
+                var erCond = item.includes("Recharge+") || item.startsWith("Energy");
+                var emCond = item.includes("Mastery+") || item.startsWith("Elemental");
                 var atkCond = item.includes("ATK+") || item.startsWith("ATK");
                 var defCond = item.includes("DEF+") || item.startsWith("DEF");
                 var hpCond = item.includes("HP+") || item.startsWith("HP");
