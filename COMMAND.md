@@ -12,3 +12,6 @@
     - Usage `w!calc <something to calculate>` or `w!c <something to calc>`
 - `ar` to calculate estimated days to reach your target AR
     - Usage `w!ar <Current AR> <Target AR> <Current EXP [Optional]>`
+- `rate` to check artifact CV score using image
+    - Usage `w!rate [Attach Image]`
+- `daily` to check daily materials
