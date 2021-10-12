@@ -51,6 +51,8 @@ module.exports = {
           axios
             .post(url, form, options)
             .then((res) => {
+              
+              console.log(res.data)
               var dataResult = res.data.ParsedResults[0].ParsedText.split("\n");
               var mainStat = 0;
 
