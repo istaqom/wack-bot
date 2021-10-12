@@ -25,16 +25,16 @@ module.exports = {
     if (typeof args[0] !== "undefined") {
       dayInput = String(args[0]);
       dayInput = dayInput.toLowerCase().trim();
-      if (dayInput == "senin" || dayInput == "kamis") {
+      if (dayInput == "monday" || dayInput == "thursday") {
         todayData = dailyData["senkam"];
         daysName = "Monday/Thursday";
-      } else if (dayInput == "selasa" || dayInput == "jumat") {
+      } else if (dayInput == "tuesday" || dayInput == "friday") {
         todayData = dailyData["seljum"];
         daysName = "Tuesday/Friday";
-      } else if (dayInput == "rabu" || dayInput == "sabtu") {
+      } else if (dayInput == "wednesday" || dayInput == "saturday") {
         todayData = dailyData["rasab"];
         daysName = "Wednesday/Saturday";
-      } else if (dayInput == "minggu") {
+      } else if (dayInput == "sunday") {
         todayData = dailyData["minggu"];
         daysName = "Sunday";
       } else {
