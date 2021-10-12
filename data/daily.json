@@ -34,5 +34,17 @@
             "liyue" : "Gold",
             "inazuma" : "Light"
         }
+    },
+    "minggu" : {
+        "weapons" : {
+            "mondstadt" : "Everything",
+            "liyue" : "Everything",
+            "inazuma" : "Everything"
+        },
+        "books" : {
+            "mondstadt" : "Everything",
+            "liyue" : "Everything",
+            "inazuma" : "Everything"
+        }
     }
 }

@@ -18,7 +18,7 @@ module.exports = {
 
         const calcEmbed = new Discord.MessageEmbed()
           .setColor("#2ECC71")
-          .setDescription(`${noSpaceArgs} = ${calculate}`);
+          .setDescription(`${calculate}`);
 
         return message.channel.send(calcEmbed);
       } catch (err) {
