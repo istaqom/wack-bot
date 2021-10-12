@@ -21,9 +21,9 @@ module.exports = {
         word = `**Weapon**\n`;
         word += `**Mondstadt :** ${todayData["weapons"]["mondstadt"]}\n`;
         word += `**Liyue :** ${todayData["weapons"]["liyue"]}\n`;
-        word += `**Inazuma :** ${todayData["weapons"]["inazuma"]}\n`;
+        word += `**Inazuma :** ${todayData["weapons"]["inazuma"]}\n\n`;
 
-        word = `**Books**\n`;
+        word += `**Books**\n`;
         word += `**Mondstadt :** ${todayData["books"]["mondstadt"]}\n`;
         word += `**Liyue :** ${todayData["books"]["liyue"]}\n`;
         word += `**Inazuma :** ${todayData["books"]["inazuma"]}\n`;
@@ -34,9 +34,9 @@ module.exports = {
         word = `**Weapon**\n`;
         word += `**Mondstadt :** ${todayData["weapons"]["mondstadt"]}\n`;
         word += `**Liyue :** ${todayData["weapons"]["liyue"]}\n`;
-        word += `**Inazuma :** ${todayData["weapons"]["inazuma"]}\n`;
+        word += `**Inazuma :** ${todayData["weapons"]["inazuma"]}\n\n`;
 
-        word = `**Books**\n`;
+        word += `**Books**\n`;
         word += `**Mondstadt :** ${todayData["books"]["mondstadt"]}\n`;
         word += `**Liyue :** ${todayData["books"]["liyue"]}\n`;
         word += `**Inazuma :** ${todayData["books"]["inazuma"]}\n`;
@@ -47,9 +47,9 @@ module.exports = {
         word = `**Weapon**\n`;
         word += `**Mondstadt :** ${todayData["weapons"]["mondstadt"]}\n`;
         word += `**Liyue :** ${todayData["weapons"]["liyue"]}\n`;
-        word += `**Inazuma :** ${todayData["weapons"]["inazuma"]}\n`;
+        word += `**Inazuma :** ${todayData["weapons"]["inazuma"]}\n\n`;
 
-        word = `**Books**\n`;
+        word += `**Books**\n`;
         word += `**Mondstadt :** ${todayData["books"]["mondstadt"]}\n`;
         word += `**Liyue :** ${todayData["books"]["liyue"]}\n`;
         word += `**Inazuma :** ${todayData["books"]["inazuma"]}\n`;
