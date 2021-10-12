@@ -24,36 +24,39 @@ module.exports = {
 
     if (typeof args[0] !== "undefined") {
       dayInput = String(args[0]);
+      dayInput = dayInput.toLowerCase().trim();
+      if (dayInput == "senin" || dayInput == "kamis") {
+        todayData = dailyData["senkam"];
+      } else if (dayInput == "senin" || dayInput == "kamis") {
+        todayData = dailyData["seljum"];
+      } else if (dayInput == "senin" || dayInput == "kamis") {
+        todayData = dailyData["rasab"];
+      } else if (dayInput == "minggu") {
+        todayData = dailyData["minggu"];
+      } else {
+        return message.channel.send("There is no such day").then((msg) => {
+          msg.delete({ timeout: 10000 });
+        });
+      }
     } else {
-      dayInput = "";
-    }
-
-    if (
-      days[todayDateTime.getDay()] == "Monday" ||
-      days[todayDateTime.getDay()] == "Thursday" ||
-      dayInput.toLowerCase().trim() == "senin" ||
-      dayInput.toLowerCase().trim() == "kamis"
-    ) {
-      todayData = dailyData["senkam"];
-    } else if (
-      days[todayDateTime.getDay()] == "Tuesday" ||
-      days[todayDateTime.getDay()] == "Friday" ||
-      dayInput.toLowerCase().trim() == "selasa" ||
-      dayInput.toLowerCase().trim() == "jumat"
-    ) {
-      todayData = dailyData["seljum"];
-    } else if (
-      days[todayDateTime.getDay()] == "Wednesday" ||
-      days[todayDateTime.getDay()] == "Saturday" ||
-      dayInput.toLowerCase().trim() == "rabu" ||
-      dayInput.toLowerCase().trim() == "sabtu"
-    ) {
-      todayData = dailyData["rasab"];
-    } else if (
-      days[todayDateTime.getDay()] == "Sunday" ||
-      dayInput.toLowerCase().trim() == "minggu"
-    ) {
-      todayData = dailyData["minggu"];
+      if (
+        days[todayDateTime.getDay()] == "Monday" ||
+        days[todayDateTime.getDay()] == "Thursday"
+      ) {
+        todayData = dailyData["senkam"];
+      } else if (
+        days[todayDateTime.getDay()] == "Tuesday" ||
+        days[todayDateTime.getDay()] == "Friday"
+      ) {
+        todayData = dailyData["seljum"];
+      } else if (
+        days[todayDateTime.getDay()] == "Wednesday" ||
+        days[todayDateTime.getDay()] == "Saturday"
+      ) {
+        todayData = dailyData["rasab"];
+      } else if (days[todayDateTime.getDay()] == "Sunday") {
+        todayData = dailyData["minggu"];
+      }
     }
 
     if (typeof todayData !== "undefined") {

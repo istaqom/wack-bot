@@ -34,7 +34,9 @@ module.exports = {
           ],
         });
       } else {
-        return message.channel.send("There's only '3, 4 and 5`");
+        return message.channel.send("There's only '3, 4 and 5`").then((msg) => {
+          msg.delete({ timeout: 10000 });
+        });
       }
     }
   },
