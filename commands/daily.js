@@ -27,12 +27,16 @@ module.exports = {
       dayInput = dayInput.toLowerCase().trim();
       if (dayInput == "senin" || dayInput == "kamis") {
         todayData = dailyData["senkam"];
-      } else if (dayInput == "senin" || dayInput == "kamis") {
+        daysName = "Monday/Thursday";
+      } else if (dayInput == "selasa" || dayInput == "jumat") {
         todayData = dailyData["seljum"];
-      } else if (dayInput == "senin" || dayInput == "kamis") {
+        daysName = "Tuesday/Friday";
+      } else if (dayInput == "rabu" || dayInput == "sabtu") {
         todayData = dailyData["rasab"];
+        daysName = "Wednesday/Saturday";
       } else if (dayInput == "minggu") {
         todayData = dailyData["minggu"];
+        daysName = "Sunday";
       } else {
         return message.channel.send("There is no such day").then((msg) => {
           msg.delete({ timeout: 10000 });
@@ -73,7 +77,7 @@ module.exports = {
       var embed = new Discord.MessageEmbed()
         .setColor("#2ECC71")
         .setAuthor(message.author.tag, message.author.avatarURL())
-        .setTitle(`${(typeof args[0] == "undefined") ? days[todayDateTime.getDay()] : args[0]} Materials`)
+        .setTitle(`${(typeof args[0] == "undefined") ? days[todayDateTime.getDay()] : daysName} Materials`)
         .setDescription(word)
         .setTimestamp();
 
