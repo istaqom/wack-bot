@@ -68,5 +68,7 @@ module.exports = {
         .setDescription(word)
         .setTimestamp()
 
+    return message.channel.send(embed);
+
   }
 };
