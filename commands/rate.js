@@ -295,22 +295,22 @@ module.exports = {
 
               var cv = (crate * 2 + cdmg).toFixed(2);
 
-              word += `\n\*\*CV :\*\* ${cv}\n\n`;
+              word += `\n\*\*CV :\*\* ${cv} `;
 
               if (cv <= 10) {
-                word += "**Your artifact is GARBAGE!**\n";
+                word += "**(Garbage)**\n";
               } else if (cv > 10 && cv <= 20) {
-                word += "**Your artifact is AVERAGE!**\n";
+                word += "**(Average)**\n";
               } else if (cv > 20 && cv <= 30) {
-                word += "**Your artifact is DECENT!**\n";
+                word += "**(Decent)**\n";
               } else if (cv > 30 && cv <= 40) {
-                word += "**Your artifact is VERY GOOD!**\n";
+                word += "**(Very Good)**\n";
               } else if (cv > 40 && cv <= 50) {
-                word += "**Your artifact is JEWEL!**\n";
+                word += "**(Jewel)**\n";
               } else if (cv > 50 && cv <= 60) {
-                word += "**Your artifact is GODSENT!**\n";
+                word += "**(Godsent)**\n";
               } else {
-                word += "**Your artifact didn't exist**\n";
+                word += "**(didn't exist)**\n";
               }
 
               const embed = new Discord.MessageEmbed()
