@@ -6,7 +6,15 @@ module.exports = {
   description: "Check daily domain material",
   aliases: ["d"],
   execute(message, args) {
-    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
     var word = "";
 
     if (args.length == 0) {
@@ -15,7 +23,10 @@ module.exports = {
       });
       todayDateTime = new Date(todayDateTime);
 
-      if (days[todayDateTime.getDay()] == "Monday" || days[todayDateTime.getDay()] == "Thursday") {
+      if (
+        days[todayDateTime.getDay()] == "Monday" ||
+        days[todayDateTime.getDay()] == "Thursday"
+      ) {
         todayData = dailyData["senkam"];
 
         word = `**Weapon**\n`;
@@ -27,8 +38,10 @@ module.exports = {
         word += `**Mondstadt :** ${todayData["books"]["mondstadt"]}\n`;
         word += `**Liyue :** ${todayData["books"]["liyue"]}\n`;
         word += `**Inazuma :** ${todayData["books"]["inazuma"]}\n`;
-
-      } else if (days[todayDateTime.getDay()] == "Tuesday" || days[todayDateTime.getDay()] == "Friday") {
+      } else if (
+        days[todayDateTime.getDay()] == "Tuesday" ||
+        days[todayDateTime.getDay()] == "Friday"
+      ) {
         todayData = dailyData["seljum"];
 
         word = `**Weapon**\n`;
@@ -40,8 +53,10 @@ module.exports = {
         word += `**Mondstadt :** ${todayData["books"]["mondstadt"]}\n`;
         word += `**Liyue :** ${todayData["books"]["liyue"]}\n`;
         word += `**Inazuma :** ${todayData["books"]["inazuma"]}\n`;
-
-      } else if (days[todayDateTime.getDay()] == "Wednesday" || days[todayDateTime.getDay()] == "Saturday") {
+      } else if (
+        days[todayDateTime.getDay()] == "Wednesday" ||
+        days[todayDateTime.getDay()] == "Saturday"
+      ) {
         todayData = dailyData["rasab"];
 
         word = `**Weapon**\n`;
@@ -53,22 +68,18 @@ module.exports = {
         word += `**Mondstadt :** ${todayData["books"]["mondstadt"]}\n`;
         word += `**Liyue :** ${todayData["books"]["liyue"]}\n`;
         word += `**Inazuma :** ${todayData["books"]["inazuma"]}\n`;
-
       } else if (days[todayDateTime.getDay()] == "Sunday") {
-
       }
-
     } else if (args.length != 0) {
     }
 
     var embed = new Discord.MessageEmbed()
-        .setColor("#2ECC71")
-        .setAuthor(message.author.tag, message.author.avatarURL())
-        .setTitle(`${days[todayDateTime.getDay()]} Materials`)
-        .setDescription(word)
-        .setTimestamp()
+      .setColor("#2ECC71")
+      .setAuthor(message.author.tag, message.author.avatarURL())
+      .setTitle(`${days[todayDateTime.getDay()]} Materials`)
+      .setDescription(word)
+      .setTimestamp();
 
     return message.channel.send(embed);
-
-  }
+  },
 };
