@@ -82,16 +82,8 @@ module.exports = {
         .setTimestamp();
 
       if (todayData["image"] != "None") {
-        var regex = /^([^\\]*)\.(\w+)$/;
-        var matches = todayData["image"].match(regex);
-
-        if (matches) {
-            var filename = matches[1];
-            var extension = matches[2];
-        }
-
         embed.attachFiles([todayData["image"]]);
-        embed.setImage(`attachment://${filename+"."+extension}`);
+        embed.setImage(`attachment://${todayData["image"].replace(/(.+?)(\.[^.]*$|$)/, "")}`);
       }
 
       return message.channel.send(embed);
