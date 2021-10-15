@@ -10,7 +10,7 @@
             "liyue" : "Prosperity",
             "inazuma" : "Transience"
         },
-        "image" : "../img/daily/senin.png"
+        "image" : "./image/daily/senin.png"
     },
     "seljum" : {
         "weapons" : {
@@ -23,7 +23,7 @@
             "liyue" : "Diligence",
             "inazuma" : "Elegance"
         },
-        "image" : "../img/daily/selasa.png"
+        "image" : "./image/daily/selasa.png"
     },
     "rasab" : {
         "weapons" : {
@@ -36,7 +36,7 @@
             "liyue" : "Gold",
             "inazuma" : "Light"
         },
-        "image" : "../img/daily/rabu.png"
+        "image" : "./image/daily/rabu.png"
     },
     "minggu" : {
         "weapons" : {

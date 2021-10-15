@@ -3,8 +3,6 @@ bot-backup/
 commands-backup/
 index-copy.js
 config.json
-img/discord
-img/Edit*Material
-img/junk
+img/
 CheckerArtifact.py
 test/
