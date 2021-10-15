@@ -9,7 +9,8 @@
             "mondstadt" : "Freedom",
             "liyue" : "Prosperity",
             "inazuma" : "Transience"
-        }
+        },
+        "image" : "../img/daily/senin.png"
     },
     "seljum" : {
         "weapons" : {
@@ -21,7 +22,8 @@
             "mondstadt" : "Resistance",
             "liyue" : "Diligence",
             "inazuma" : "Elegance"
-        }
+        },
+        "image" : "../img/daily/selasa.png"
     },
     "rasab" : {
         "weapons" : {
@@ -33,7 +35,8 @@
             "mondstadt" : "Ballad",
             "liyue" : "Gold",
             "inazuma" : "Light"
-        }
+        },
+        "image" : "../img/daily/rabu.png"
     },
     "minggu" : {
         "weapons" : {
@@ -45,6 +48,7 @@
             "mondstadt" : "Everything",
             "liyue" : "Everything",
             "inazuma" : "Everything"
-        }
+        },
+        "image" : "None"
     }
 }
