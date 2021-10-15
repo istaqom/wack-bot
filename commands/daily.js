@@ -83,7 +83,7 @@ module.exports = {
 
       if (todayData["image"] != "None") {
         embed.attachFiles([todayData["image"]]);
-        embed.setImage(`attachment://${todayData["image"].split('\\').pop().split('/').pop()}.png`);
+        embed.setImage(`attachment://${todayData["image"].split('\\').pop().split('/').pop()}`);
       }
 
       return message.channel.send(embed);
