@@ -76,9 +76,9 @@ module.exports = {
         .setColor("#2ECC71")
         .setAuthor(message.author.tag, message.author.avatarURL())
         .setTitle(`${(typeof args[0] == "undefined") ? days[todayDateTime.getDay()] : daysName} Materials`)
-        .addField(
-          {name: "Weapon", value: weapon,inline: true},
-          {name: "Books", value: book,inline: true},
+        .addFields(
+          {name: "Weapon", value: weapon ,inline: true},
+          {name: "Books", value: book ,inline: true},
         )
         .setTimestamp();
 
