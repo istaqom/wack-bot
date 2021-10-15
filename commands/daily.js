@@ -64,21 +64,22 @@ module.exports = {
     }
 
     if (typeof todayData !== "undefined") {
-      var word = `**Weapon**\n`;
-      word += `**Mondstadt :** ${todayData["weapons"]["mondstadt"]}\n`;
-      word += `**Liyue :** ${todayData["weapons"]["liyue"]}\n`;
-      word += `**Inazuma :** ${todayData["weapons"]["inazuma"]}\n\n`;
+      var weapon = `**Mondstadt :** ${todayData["weapons"]["mondstadt"]}\n`;
+      weapon += `**Liyue :** ${todayData["weapons"]["liyue"]}\n`;
+      weapon += `**Inazuma :** ${todayData["weapons"]["inazuma"]}\n\n`;
 
-      word += `**Books**\n`;
-      word += `**Mondstadt :** ${todayData["books"]["mondstadt"]}\n`;
-      word += `**Liyue :** ${todayData["books"]["liyue"]}\n`;
-      word += `**Inazuma :** ${todayData["books"]["inazuma"]}\n`;
+      var book = `**Mondstadt :** ${todayData["books"]["mondstadt"]}\n`;
+      book += `**Liyue :** ${todayData["books"]["liyue"]}\n`;
+      book += `**Inazuma :** ${todayData["books"]["inazuma"]}\n`;
 
       var embed = new Discord.MessageEmbed()
         .setColor("#2ECC71")
         .setAuthor(message.author.tag, message.author.avatarURL())
         .setTitle(`${(typeof args[0] == "undefined") ? days[todayDateTime.getDay()] : daysName} Materials`)
-        .setDescription(word)
+        .addField(
+          {name: "Weapon", value: weapon,inline: true},
+          {name: "Books", value: book,inline: true},
+        )
         .setTimestamp();
 
       if (todayData["image"] != "None") {
