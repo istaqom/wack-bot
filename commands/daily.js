@@ -92,6 +92,7 @@ module.exports = {
 
         embed.attachFiles([todayData["image"]]);
         embed.setImage(`attachment://${filename+extension}`);
+        console.log(filename+extension)
       }
 
       return message.channel.send(embed);
